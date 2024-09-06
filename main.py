@@ -16,7 +16,11 @@ for index, row in df.iterrows():
     pdf.set_text_color(100, 100, 100)
 
     pdf.cell(w=0, h=12, txt=row['Topic'], align='L', ln=1)
-    pdf.line(x1=10, y1=21, x2=200, y2=21)  # this is a add a line below the topic name
+    for y in range(20, 298, 10):  # start the line at 20 and every 10mm increase until 298
+        pdf.set_text_color(100, 100, 100)
+        pdf.line(10, y, 200, y)
+    # pdf.line(x1=10, y1=21, x2=200, y2=21)
+    # this is a add a line below the topic name
     # add footer for page with title
     pdf.ln(265)  # this is the size of the break lines, 278 because A4 is around 297 height
     # which should fit nicely with 265, reduce accordingly if don't see the footer
@@ -39,6 +43,9 @@ for index, row in df.iterrows():
         pdf.set_text_color(100, 100, 100)
         pdf.cell(w=0, h=10, txt=row['Topic'], align='R', ln=1)
         # align to the right.
+        for y in range(20, 298, 10):  # start the line at 20 and every 10mm increase until 298
+            pdf.set_text_color(100, 100, 100)
+            pdf.line(10, y, 200, y)
 
 pdf.output('output.pdf')
 
