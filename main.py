@@ -18,7 +18,11 @@ for index, row in df.iterrows():
     pdf.cell(w=0, h=12, txt=row['Topic'], align='L', ln=1)
     for y in range(20, 298, 10):  # start the line at 20 and every 10mm increase until 298
         pdf.set_text_color(100, 100, 100)
-        pdf.line(10, y, 200, y)
+        pdf.line(10, y, 200, y) # this is to add multiple lines
+        #x1 is the width of from left to right beginning of the link
+        # x2 is the end of the line so 200 is distance x1 to x2
+        # y1 and y2 in this instance is the same as it is height we want a straight line
+
     # pdf.line(x1=10, y1=21, x2=200, y2=21)
     # this is a add a line below the topic name
     # add footer for page with title
