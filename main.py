@@ -16,6 +16,11 @@ for index, row in df.iterrows():
     pdf.line(x1=10, y1=21, x2=200, y2=21)  # this is a add a line below the topic name
 
     # if we want another font for another cell we need to have another set_font above the cell.
+    for page in range(row['Pages']):
+        pdf.add_page()
+        # this is to add pages according to the pages in the csv
+        # in range is used for the range numbers in the pages colum
+
 pdf.output('output.pdf')
 
 # w=width,if 0 means it extend to the end of the page, border if = 0 there is no border.
